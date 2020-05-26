@@ -1,0 +1,51 @@
+{
+  "name": "m-muhsin/on-its-way.com",
+  "description": "on-its-way.com website",
+  "license": "proprietary",
+  "require": {
+    "php": ">=5.6",
+    "leocolomb/wordpress": "^5.4.1",
+    "gatsbyjs/wp-gatsby": "^0.4.1",
+    "wpackagist-plugin/akismet": "^4.1.5",
+    "wp-graphql/wp-graphql": "^0.9.1",
+    "wp-graphql/wp-graphiql": "^1.0.1",
+    "wpackagist-theme/twentytwelve": "^3.1"
+  },
+  "config": {
+    "classmap-authoritative": true,
+    "preferred-install": {
+      "*": "dist"
+    }
+  },
+  "extra": {
+    "installer-paths": {
+      "wp-content/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    },
+    "wordpress-install-dir": "core"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/gatsbyjs/wp-gatsby.git"
+    }
+
+  ],
+  "scripts": {
+    "cleanup": "git status --short --ignored | sed -n -e 's#^!! ##p' | xargs -r rm -vrf"
+  },
+  "scripts-descriptions": {
+    "cleanup": "Remove all ignored files."
+  }
+}
